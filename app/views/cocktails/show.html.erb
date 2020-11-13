@@ -1,14 +1,34 @@
-<h1>Here is your cocktail : <%= @cocktail.name %></h1>
+<div class="banner">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <p>Your cocktail!</p>
+  </div>
+</div>
 
-<p><% @cocktail.doses.each do |dose| %>
-      <p><%= dose.description %> - <%= dose.ingredient.name%>
-      <%= link_to "Remove", dose_path(dose),
-                method: :delete,
-                data: { confirm: "Are you sure?" }
-            %>
-      </p>
-  <% end %>
-</p>
+<div class="container d-flex justify-content-center">
+  <div class="card-trip">
+    <img src="https://images.pexels.com/photos/5863526/pexels-photo-5863526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+    <div class="card-trip-infos">
+      <div >
+        <div class="border-bot">
+          <h2>List of ingredients</h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @cocktail.doses.each do |dose| %>
+            <li class="list-group-item d-flex justify-content-between">
+              <p><%= dose.description %> - <%= dose.ingredient.name%></p>
+              <%= link_to "Remove", dose_path(dose),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }
+              %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <%= link_to "back", cocktails_path%>
 <%= link_to 'add ingredient', new_cocktail_dose_path(@cocktail) %>

@@ -11,3 +11,6 @@ cocktail1 = Cocktail.create(name: "grenadine à l'eau")
 ing = Ingredient.create(name: "lemon")
 
 dos = Dose.create(description: "3cl", cocktail_id: 1, ingredient_id: 1)
+Ingredient.create(name: "lemon")
+Ingredient.create(name: "ice")
+Ingredient.create(name: "mint leaves")
